@@ -1,11 +1,18 @@
-const zipcodes = require('zipcodes');
+const zipcodes = require("zipcodes");
+const fs = require("fs");
 
-// Generate 100 random ZIP codes
+// Generate 100 random US ZIP codes
 const randomZipCodes = [];
-for (let i = 0; i < 100; i++) {
+while (randomZipCodes.length < 100) {
   const randomZipCode = zipcodes.random();
-  randomZipCodes.push(randomZipCode.zip);
+  if (randomZipCode.country === "US") {
+    randomZipCodes.push(randomZipCode.zip);
+  }
 }
 
-console.log(randomZipCodes);
+// Save the ZIP codes to a text file
+fs.writeFileSync("zipcodes.txt", randomZipCodes.join("\n"));
 
+console.log(
+  `Random US ZIP codes saved to zipcodes.txt:\n${randomZipCodes.join("\n")}`
+);
