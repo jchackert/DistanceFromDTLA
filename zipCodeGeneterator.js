@@ -11,7 +11,7 @@ while (randomZipCodes.length < 100) {
 }
 
 // Save the ZIP codes to a text file
-fs.writeFileSync("zipcodes.txt", randomZipCodes.join("\n"));
+fs.writeFileSync("zipcodes.txt" randomZipCodes.join("\n"));
 
 console.log(
   `Random US ZIP codes saved to zipcodes.txt:\n${randomZipCodes.join("\n")}`
